@@ -1,40 +1,22 @@
+package model;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class Directory implements Item {
-    private String name;
-    private Map<String, Item> contents;  // Can hold both files and directories
+public class Directory extends AbstractItem {
+    private Map<String, Item> contents;
     private Directory parent;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     public Directory(String name, Directory parent) {
-        this.name = name;
+        super(name);
         this.contents = new HashMap<>();
         this.parent = parent;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
     public Directory getParent() {
         return parent;
-    }
-
-    @Override
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    @Override
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
     }
 
     public void add(Item item) {
@@ -54,10 +36,5 @@ public class Directory implements Item {
 
     public Set<String> listContents() {
         return contents.keySet();
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }

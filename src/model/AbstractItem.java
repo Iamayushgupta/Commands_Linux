@@ -1,7 +1,12 @@
 package model;
 
+import lombok.Getter;
+import lombok.ToString;
+
 import java.time.LocalDateTime;
 
+@Getter
+@ToString
 public abstract class AbstractItem implements Item {
     protected String name;
     protected LocalDateTime createdAt;
@@ -11,25 +16,5 @@ public abstract class AbstractItem implements Item {
         this.name = name;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    @Override
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }

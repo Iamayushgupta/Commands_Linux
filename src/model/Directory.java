@@ -1,10 +1,13 @@
 package model;
 
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+@Getter
 public class Directory extends AbstractItem {
     private Map<String, Item> contents;
     private Directory parent;
@@ -13,10 +16,6 @@ public class Directory extends AbstractItem {
         super(name);
         this.contents = new HashMap<>();
         this.parent = parent;
-    }
-
-    public Directory getParent() {
-        return parent;
     }
 
     public void add(Item item) {

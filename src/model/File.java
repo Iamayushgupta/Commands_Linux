@@ -1,8 +1,13 @@
 package model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Getter
 public class File extends AbstractItem {
+    @Setter
     private String content;
 
     public File(String name) {
@@ -14,9 +19,4 @@ public class File extends AbstractItem {
         this.content = content;
         this.updatedAt = LocalDateTime.now();
     }
-
-    public String getContent() {
-        return content;
-    }
 }
-
